@@ -1,0 +1,26 @@
+[
+    {
+        "product_title": "Беспроводные наушники Nia-X10 Blac",
+        "product_id": 1,
+        "product_type": "naushnik",
+        "product_price": 179000,
+        "product_count": 197,
+        "product_image": "https://assets.asahiy.uz/product/main_image/webp/desktop/5e15bd7fd87bf.webp"
+    },
+    {
+        "product_title": "Беспроводные наушники Nia-X10 lac",
+        "product_id": 2,
+        "product_type": "naushnik",
+        "product_count": 298,
+        "product_price": 179000,
+        "product_image": "https://assets.asahiy.uz/product/main_image/webp/desktop/5e15bd7fd87bf.webp"
+    },
+    {
+        "product_title": "Беспроводные наушники Nia-X10 l",
+        "product_id": 3,
+        "product_type": "naushnik",
+        "product_count": 349,
+        "product_price": 179000,
+        "product_image": "https://assets.asahiy.uz/product/main_image/webp/desktop/5e15bd7fd87bf.webp"
+    }
+]
