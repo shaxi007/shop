@@ -1,8 +1,11 @@
 import { REGISTER,LOGIN } from '../modules2/registerLogin.js'
 import { PRODUCT,ORDERS} from '../modules2/Product.js'
 import { read } from '../lib/readWrite.js'
+import { Password } from '../modules2/Password.js'
+import { verify } from '../lib/jwt.js'
 
 const handler = {
+	Password,
 	Mutation: {
 		register: REGISTER,
 		login: LOGIN,
@@ -10,7 +13,12 @@ const handler = {
 		orders:ORDERS
 	},
 	Query :{
-		orders: ()=>read('orders'),
+		orders: (_,{ token })=>{
+			let orders = read('orders')
+			let { user_id } = verify(token)
+			if(!token) return orders
+			return orders.filter(order => order.user_id == user_id)
+		},
 		products: (_,{pagination:p, find,productId:product_id})=>{
 			let products = read('products')
 			if(find) return products.filter(product => product.product_title.toLowerCase().includes(find.toLowerCase()))
@@ -36,7 +44,8 @@ const handler = {
 			let users = read('users')
 			return users.find(user => global.user_id == user.user_id)
 		},
-		productCount: global=> global.product_count
+		productCount: global=> global.product_count,
+		orderTime: global=> global.order_time,
 	},
 	User: {
 		userId: global=> global.user_id,
