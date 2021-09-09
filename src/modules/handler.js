@@ -14,10 +14,13 @@ const handler = {
 	},
 	Query :{
 		orders: (_,{ token })=>{
+			console.log(token)
 			let orders = read('orders')
-			let { user_id } = verify(token)
 			if(!token) return orders
-			return orders.filter(order => order.user_id == user_id)
+			if(token) {
+				var { user_id } = verify(token)
+				return orders.filter(order => order.user_id == user_id)
+			}
 		},
 		products: (_,{pagination:p, find,productId:product_id})=>{
 			let products = read('products')

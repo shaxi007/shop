@@ -4,7 +4,7 @@ const schema = gql`
 	scalar Password
 	scalar Any
 	type Query {
-		orders(token: String):[Order]
+		orders(token: String):[Order!]!
 		products(pagination: Pagination find:String productId:Int):[Product!]!
 	}
 	type Mutation {
